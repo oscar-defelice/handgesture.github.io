@@ -1,6 +1,7 @@
 <html>
 <head>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis"></script>
 <script src="webcam.js"></script>
 <script src="hand-dataset.js"></script>
 </head>
@@ -26,7 +27,7 @@
 	<div id="dummy">Once training is complete, click 'Start Predicting' to see predictions, and 'Stop Predicting' to end. Once you are happy with your model, click 'Download Model' to save the model (and its weights) to your local disk.</div>
 	<button type="button" id="startPredicting" onclick="startPredicting()" >Start Predicting</button>
 	<button type="button" id="stopPredicting" onclick="stopPredicting()" >Stop Predicting</button>
-    <button type="button" id="saveModel" onclick="saveModel()" >Download Model</button>
+  <button type="button" id="saveModel" onclick="saveModel()" >Download Model</button>
 	<div id="prediction"></div>
 </body>
 

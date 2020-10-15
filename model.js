@@ -15,13 +15,13 @@ async function loadMobilenet() {
 async function train() {
   dataset.ys = null;
   dataset.encodeLabels(numClasses);
-    
+
   // In the space below create a neural network that can classify hand gestures
   // corresponding to zero, one, two, three, four and five. The first layer
   // of your network should be a flatten layer that takes as input the output
   // from the pre-trained MobileNet model. Since we have 6 classes, your output
   // layer should have 6 units and a softmax activation function. You are free
-  // to use as many hidden layers and neurons as you like.  
+  // to use as many hidden layers and neurons as you like.
   model = tf.sequential({
     layers: [
         tf.layers.flatten({inputShape: mobilenet.outputs[0].shape.slice(1)}),
@@ -30,16 +30,16 @@ async function train() {
         tf.layers.dense({units: numClasses, activation: 'softmax'})
     ]
   });
-    
-   
+
+
   // Set the optimizer to be tf.train.adam() with a learning rate of 0.0001.
   const optimizer = tf.train.adam(0.0001)
-    
-        
+
+
   // Compile the model using the categoricalCrossentropy loss, and
   // the optimizer you defined above.
   model.compile({optimizer: optimizer, loss: 'categoricalCrossentropy'});
- 
+
   let loss = 0;
   model.fit(dataset.xs, dataset.ys, {
     epochs: 10,
@@ -50,6 +50,7 @@ async function train() {
         }
       }
    });
+   tfvis.show.modelSummary({name: 'Model Architecture'}, model);
 }
 
 
@@ -66,7 +67,7 @@ function handleButton(elem){
 		case "2":
 			twoSamples++;
 			document.getElementById("twoSamples").innerText = "Two samples:" + twoSamples;
-			break;  
+			break;
 		case "3":
 			threeSamples++;
 			document.getElementById("threeSamples").innerText = "Three samples:" + threeSamples;
@@ -117,8 +118,8 @@ async function predict() {
 			break;
 	}
 	document.getElementById("prediction").innerText = predictionText;
-			
-    
+
+
     predictedClass.dispose();
     await tf.nextFrame();
   }
@@ -150,7 +151,7 @@ async function init(){
 	await webcam.setup();
 	mobilenet = await loadMobilenet();
 	tf.tidy(() => mobilenet.predict(webcam.capture()));
-		
+
 }
 
 
