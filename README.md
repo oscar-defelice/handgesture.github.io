@@ -7,7 +7,7 @@ We make use of trasfer learning and of [MobileNet](https://arxiv.org/abs/1704.04
 
 ## How to use
 
-Simply, go to the [webpage](handgesture.github.io). 
+Simply, go to the [webpage](oscar-defelice.github.io/handgesture.github.io). 
 It might be required to allow the browser to access your webcam.
 Hence, you build a little dataset (50/60 images per class should be enough).
 
