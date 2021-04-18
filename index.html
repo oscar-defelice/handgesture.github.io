@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis"></script>
-<script src="webcam.js"></script>
-<script src="hand-dataset.js"></script>
-<meta charset="UTF-8">
-<title>Train and Predict Hand gestures</title>
-<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-<link type="text/css" rel="stylesheet" href="style.css">
-<link rel="shortcut icon" href="favicon.ico">
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis"></script>
+	<script src="webcam.js"></script>
+	<script src="hand-dataset.js"></script>
+	<meta charset="UTF-8">
+	<title>Train and Predict Hand gestures</title>
+	<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	<link type="text/css" rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" href="favicon.ico">
 
 </head>
+
 <body>
 	<h1>Train and Predict Hand Gestures</h1>
 	<div>
@@ -22,34 +24,35 @@
 			<video autoplay playsinline muted id="wc" width="224" height="224"></video>
 		</div>
 	</div>
-	<button type="button" id="0" onclick="handleButton(this)" >Zero</button>
-	<button type="button" id="1" onclick="handleButton(this)" >One</button>
-	<button type="button" id="2" onclick="handleButton(this)" >Two</button>
-	<button type="button" id="3" onclick="handleButton(this)" >Three</button>
-	<button type="button" id="4" onclick="handleButton(this)" >Four</button>
-  <button type="button" id="5" onclick="handleButton(this)" >Five</button>
+	<button type="button" id="0" onclick="handleButton(this)">Zero</button>
+	<button type="button" id="1" onclick="handleButton(this)">One</button>
+	<button type="button" id="2" onclick="handleButton(this)">Two</button>
+	<button type="button" id="3" onclick="handleButton(this)">Three</button>
+	<button type="button" id="4" onclick="handleButton(this)">Four</button>
+	<button type="button" id="5" onclick="handleButton(this)">Five</button>
 	<div id="zeroSamples">Zero Samples:</div>
 	<div id="oneSamples">One Samples:</div>
 	<div id="twoSamples">Two Samples:</div>
 	<div id="threeSamples">Three Samples:</div>
 	<div id="fourSamples">Four Samples:</div>
-  <div id="fiveSamples">Five Samples:</div>
-	<button type="button" id="train" onclick="doTraining()" >Train Network</button>
+	<div id="fiveSamples">Five Samples:</div>
+	<button type="button" id="train" onclick="doTraining()">Train Network</button>
 	<div id="dummy">Once training is complete, click 'Start Predicting' to see predictions, and 'Stop Predicting' to end. Once you are happy with your model, click 'Download Model' to save the model (and its weights) to your local disk.</div>
-	<button type="button" id="startPredicting" onclick="startPredicting()" >Start Predicting</button>
-	<button type="button" id="stopPredicting" onclick="stopPredicting()" >Stop Predicting</button>
-  <button type="button" id="saveModel" onclick="saveModel()" >Download Model</button>
+	<button type="button" id="startPredicting" onclick="startPredicting()">Start Predicting</button>
+	<button type="button" id="stopPredicting" onclick="stopPredicting()">Stop Predicting</button>
+	<button type="button" id="saveModel" onclick="saveModel()">Download Model</button>
 	<div id="prediction"></div>
-    <p><br></p>
-    <p><br></p>
-    <div id="powered_by" style="font-size:11px">
-			<a href="https://oscar-defelice.github.io">
-				<img src="https://user-images.githubusercontent.com/49638680/98257158-a2594880-1f7f-11eb-95c8-11e438336175.png" height="100" /><br>
-			</a>
-			Powered by
-			<a href="https://oscar-defelice.github.io" style="color:white;font-size:11px">Oscar de Felice</a>
-		</div>
+	<p><br></p>
+	<p><br></p>
+	<div id="powered_by" style="font-size:11px">
+		<a href="https://oscar-defelice.github.io">
+			<img src="https://user-images.githubusercontent.com/49638680/98257158-a2594880-1f7f-11eb-95c8-11e438336175.png" height="100" /><br>
+		</a>
+		Powered by
+		<a href="https://oscar-defelice.github.io" style="color:white;font-size:11px">Oscar de Felice</a>
+	</div>
 </body>
 
 <script src="model.js"></script>
+
 </html>
